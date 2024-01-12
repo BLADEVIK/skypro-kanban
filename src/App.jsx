@@ -7,44 +7,42 @@ import PopNewCard from "./components/PopNewCard/PopNewCard";
 import Wrapper from "./components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 import { cardList } from "./data";
+import { GlobalStyle } from "./Global.styled";
 
 function App() {
   const [cards, setCards] = useState(cardList);
   const [isLoaded, setIsLoaded] = useState(true);
-  useEffect(()=>{
-   setTimeout(()=>{
-   setIsLoaded(false)
-   },1000)
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(false);
+    }, 1000);
+  }, []);
 
-  function addCard(){
+  function addCard() {
     setCards([
-    ...cards,
-   {
-    
-    id: cards.length + 1,
-    theme: "Web Design",
-    title: "Название задачи",
-    date: "30.10.23",
-    status: "Без статуса"
+      ...cards,
+      {
+        id: cards.length + 1,
+        theme: "Web Design",
+        title: "Название задачи",
+        date: "30.10.23",
+        status: "Без статуса",
+      },
+    ]);
   }
-])
+
+  return (
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <PopBrowse />
+        <PopNewCard />
+        <PopExit />
+        <Header addCard={addCard} />
+        <Main isLoaded={isLoaded} cardList={cards} />
+      </Wrapper>
+    </>
+  );
 }
-
- 
-   
-      return (
-        <Wrapper>
-          <PopBrowse />
-          <PopNewCard />
-          <PopExit />
-          <Header addCard={addCard} />
-          <Main isLoaded={isLoaded} cardList={cards} />
-        </Wrapper>
-      )
-    }
-  
-
-
 
 export default App;
