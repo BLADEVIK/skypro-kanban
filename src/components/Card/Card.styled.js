@@ -1,15 +1,11 @@
 import { styled } from "styled-components";
 import { themeStyles } from "../../lib/theme";
-import { breakpoints } from "../../lib/breakpoints";
 
-export const CardItem = styled.div`
+export const CardsItem = styled.div`
   padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
-  @media (max-width: ${breakpoints.md}px) {
-    background-color: red;
-  }
 `;
 
 export const CardWrapper = styled.div`
