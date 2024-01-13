@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Container } from "../Common/Common.styled";
-
+import { HeaderBlock, HeaderBtnMainNew, HeaderLogoDark, HeaderLogoShowLight, HeaderNav, HeaderPopUserSet, HeaderStyle, HeaderUser, PopUserSetMail, PopUserSetName } from "./Header.styled";
 function Header({addCard}){
   const [isOpened,setIsOpened]=useState(false);
 
@@ -8,34 +8,30 @@ function Header({addCard}){
    setIsOpened((prev)=>!prev)
   }
     return (
-        <header className="header">
+        <HeaderStyle>
         <Container>
-          <div className="header__block">
-            <div className="header__logo _show _light">
+          <HeaderBlock>
+            <HeaderLogoShowLight>
               <a href="" target="_self">
                 <img src="images/logo.png" alt="logo" />
               </a>
-            </div>
-            <div className="header__logo _dark">
+              </HeaderLogoShowLight>
+            <HeaderLogoDark>
               <a href="" target="_self">
                 <img src="images/logo_dark.png" alt="logo" />
               </a>
-            </div>
-            <nav className="header__nav">
-              <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+              </HeaderLogoDark>
+            <HeaderNav>
+              <HeaderBtnMainNew id="btnMainNew" onClick={addCard}>
                 Создать новую задачу
-              </button>
-              <a href="#" className="header__user _hover02" onClick={togglePopUp}>
+                </HeaderBtnMainNew>
+              <HeaderUser href="#"  onClick={togglePopUp}>
                 Ivan Ivanov
-              </a>
+                </HeaderUser>
               {isOpened &&
-                <div
-                className="header__pop-user-set pop-user-set"
-                // id="user-set-target"
-              >
-                {/* <a href="">x</a> */}
-                <p className="pop-user-set__name">Ivan Ivanov</p>
-                <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
+                <HeaderPopUserSet>
+                <PopUserSetName>Ivan Ivanov</PopUserSetName>
+                <PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
                 <div className="pop-user-set__theme">
                   <p>Темная тема</p>
                   <input type="checkbox" className="checkbox" name="checkbox" />
@@ -43,13 +39,13 @@ function Header({addCard}){
                 <button type="button" className="_hover03">
                   <a href="#popExit">Выйти</a>
                 </button>
-              </div>
+              </HeaderPopUserSet>
                }
               
-            </nav>
-          </div>
+              </HeaderNav>
+            </HeaderBlock>
           </Container>
-      </header>
+          </HeaderStyle>
     )
 }
 export default Header
