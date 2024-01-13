@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Container } from "../Common/Common.styled";
 
 function Header({addCard}){
   const [isOpened,setIsOpened]=useState(false);
@@ -8,7 +9,7 @@ function Header({addCard}){
   }
     return (
         <header className="header">
-        <div className="container">
+        <Container>
           <div className="header__block">
             <div className="header__logo _show _light">
               <a href="" target="_self">
@@ -47,7 +48,7 @@ function Header({addCard}){
               
             </nav>
           </div>
-        </div>
+          </Container>
       </header>
     )
 }
