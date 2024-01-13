@@ -2,11 +2,11 @@ import {
   CardContent,
   CardDate,
   CardGroup,
-  CardItem,
   CardTheme,
   CardThemeText,
   CardTitle,
   CardWrapper,
+  CardsItem,
 } from "./Card.styled";
 
 function Card({ name, theme, date }) {
@@ -23,7 +23,7 @@ function Card({ name, theme, date }) {
       break;
   }
   return (
-    <CardItem>
+    <CardsItem>
       <CardWrapper>
         <CardGroup>
           <CardTheme $themeColor={color}>
@@ -37,7 +37,7 @@ function Card({ name, theme, date }) {
             </div>
           </a>
         </CardGroup>
-       <CardContent>
+        <CardContent>
           <a href="" target="_blank">
             <CardTitle>{name}</CardTitle>
           </a>
@@ -71,10 +71,10 @@ function Card({ name, theme, date }) {
               </defs>
             </svg>
             <p>{date}</p>
-            </CardDate>
-          </CardContent>
+          </CardDate>
+        </CardContent>
       </CardWrapper>
-    </CardItem>
+    </CardsItem>
   );
 }
 export default Card;
