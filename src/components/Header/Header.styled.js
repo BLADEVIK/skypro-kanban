@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-
+import { breakpoints } from "../../lib/breakpoints";
 export const HeaderStyle = styled.header`
   width: 100%;
   margin: 0 auto;
@@ -16,12 +16,7 @@ export const HeaderBlock = styled.div`
   left: 0;
   padding: 0 10px;
 `;
-export const HeaderLogoShowLight = styled.div`
-  width: 85px;
-`;
-export const HeaderLogoDark = styled.div`
-  display: none;
-`;
+
 export const HeaderNav = styled.div`
   max-width: 290px;
   padding: 0;
@@ -43,6 +38,17 @@ export const HeaderBtnMainNew = styled.button`
   &&:hover {
     background-color: #33399b;
   }
+  @media (max-width: ${breakpoints.md}px) {
+    z-index: 3;
+    position: fixed;
+    left: 16px;
+    bottom: 30px;
+    top: auto;
+    width: calc(100vw - 32px);
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 0;
+  }
 `;
 export const HeaderUser = styled.a`
   height: 20px;
@@ -61,22 +67,7 @@ export const HeaderUser = styled.a`
     border-bottom-color: #33399b;
   }
 `;
-export const HeaderPopUserSet = styled.div`
-  display: block;
-  position: absolute;
-  top: 61px;
-  right: 0;
-  width: 213px;
-  height: 205px;
-  border-radius: 10px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  background: #fff;
-  box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
-  padding: 34px;
-  text-align: center;
-  z-index: 2;
-  display: block;
-`;
+
 export const PopUserSetName = styled.p`
   color: #000;
   font-size: 14px;
@@ -91,10 +82,4 @@ export const PopUserSetMail = styled.p`
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
-`;
-export const popUserSetTheme = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
 `;

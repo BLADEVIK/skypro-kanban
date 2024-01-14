@@ -48,14 +48,7 @@ export const CardGroup = styled.div`
   justify-content: space-between;
 `;
 
-// export const CardBtn = styled.div`
-//   width: 24px;
-//   height: 24px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   padding: 2px;
-// `;
+
 export const CardContent = styled.div`
   height: 64px;
   display: flex;
@@ -74,4 +67,9 @@ export const CardDate = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+	margin-left: 6px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #94A6BE;
+  letter-spacing: 0.2px;
 `;
