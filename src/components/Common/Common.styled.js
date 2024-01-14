@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-  @media(max-width:${breakpoints.md}px) {
+  @media (max-width: ${breakpoints.md}px) {
     width: 100%;
     padding: 0 16px;
   }
