@@ -1,4 +1,4 @@
-import { PopExitBlock, PopExitContainer, PopExitFormGroup, PopExitStyle, PopExitTtl } from "./PopExit.styled";
+import { PopExitBlock, PopExitContainer, PopExitExitNo, PopExitExitNoA, PopExitExitYes, PopExitExitYesA,  PopExitFormGroup, PopExitStyle, PopExitTtl } from "./PopExit.styled";
 
 function PopExit() {
   return (
@@ -10,12 +10,12 @@ function PopExit() {
             </PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
             <PopExitFormGroup>
-              <button className="pop-exit__exit-yes _hover01" id="exitYes">
-                <a href="modal/signin.html">Да, выйти</a>{" "}
-              </button>
-              <button className="pop-exit__exit-no _hover03" id="exitNo">
-                <a href="main.html">Нет, остаться</a>{" "}
-              </button>
+              <PopExitExitYes className="_hover01" id="exitYes">
+                <PopExitExitYesA href="modal/signin.html">Да, выйти</PopExitExitYesA>{" "}
+              </PopExitExitYes>
+              <PopExitExitNo className="_hover03" id="exitNo">
+                <PopExitExitNoA href="main.html">Нет, остаться</PopExitExitNoA>{" "}
+              </PopExitExitNo>
               </PopExitFormGroup>
           </form>
           </PopExitBlock>
