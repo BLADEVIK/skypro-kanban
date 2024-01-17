@@ -1,4 +1,6 @@
 import {
+  CardBtn,
+  CardBtnDiv,
   CardContent,
   CardDate,
   CardGroup,
@@ -30,11 +32,11 @@ function Card({ name, theme, date }) {
             <CardThemeText>{theme}</CardThemeText>
           </CardTheme>
           <a href="#popBrowse" target="_self">
-            <div className="card__btn">
-              <div />
-              <div />
-              <div />
-            </div>
+            <CardBtn>
+              <CardBtnDiv/>
+              <CardBtnDiv/>
+              <CardBtnDiv/>
+            </CardBtn>
           </a>
         </CardGroup>
         <CardContent>
