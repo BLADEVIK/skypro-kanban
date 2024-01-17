@@ -12,6 +12,7 @@ import {
 } from "./Card.styled";
 
 function Card({ name, theme, date }) {
+ 
   let color;
   switch (theme) {
     case "Web Design":

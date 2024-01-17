@@ -1,4 +1,7 @@
+// import { useParams } from "react-router-dom"
+
 function PopBrowse(){
+  // let {cardId}=useParams()
     return(
         <div className="pop-browse" id="popBrowse">
         <div className="pop-browse__container">

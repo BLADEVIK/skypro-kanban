@@ -1,5 +1,5 @@
-import Card from "../components/Card/Card";
+import {PopBrowse} from "../components/PopBrowse/PopBrowse";
 
 export default function CardPage() {
-  return <Card />;
+  return <PopBrowse />;
 }

@@ -1,15 +1,20 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import PopBrowse from "./components/PopBrowse/PopBrowse";
-import PopExit from "./components/PopExit/PopExit";
-import PopNewCard from "./components/PopNewCard/PopNewCard";
-import Wrapper from "./components/Wrapper/Wrapper";
+
 import { useEffect, useState } from "react";
 import { cardList } from "./data";
 import { GlobalStyle } from "./Global.styled";
+import { appRoutes } from "./lib/appRoutes";
+import { Routes, Route } from "react-router-dom";
+import { CardPage } from "./pages/CardPage";
+import { MainPage } from "./pages/MainPage";
+import { PopExitPage } from "./pages/PopExitPage";
+import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
+  let user=false
   const [cards, setCards] = useState(cardList);
   const [isLoaded, setIsLoaded] = useState(true);
   useEffect(() => {
@@ -34,13 +39,16 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
-        <PopBrowse />
-        <PopNewCard />
-        <PopExit />
-        <Header addCard={addCard} />
-        <Main isLoaded={isLoaded} cardList={cards} />
-      </Wrapper>
+      <Routes>
+        <Route element={<PrivateRoute user={user}/>}/>
+        <Route path={appRoutes.CARD} element={<CardPage />} />
+        <Route path={appRoutes.MAIN} element={<MainPage isLoaded={isLoaded} cardList={cards} addCard={addCard} />} />
+        <Route path={appRoutes.POP_EXIT} element={<PopExitPage />} />
+        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
+        <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
+      </Routes>
+      ;
     </>
   );
 }
