@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   CardBtn,
   CardBtnDiv,
@@ -10,9 +11,9 @@ import {
   CardWrapper,
   CardsItem,
 } from "./Card.styled";
+import { appRoutes } from "./../../lib/appRoutes";
 
-function Card({ name, theme, date }) {
- 
+function Card({ name, theme, date,id }) {
   let color;
   switch (theme) {
     case "Web Design":
@@ -34,16 +35,16 @@ function Card({ name, theme, date }) {
           </CardTheme>
           <a href="#popBrowse" target="_self">
             <CardBtn>
-              <CardBtnDiv/>
-              <CardBtnDiv/>
-              <CardBtnDiv/>
+              <CardBtnDiv />
+              <CardBtnDiv />
+              <CardBtnDiv />
             </CardBtn>
           </a>
         </CardGroup>
         <CardContent>
-          <a href="" target="_blank">
+          <Link to={`${appRoutes.CARD}/${id}`}>
             <CardTitle>{name}</CardTitle>
-          </a>
+          </Link>
           <CardDate>
             <svg
               xmlns="http://www.w3.org/2000/svg"

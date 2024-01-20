@@ -1,3 +1,4 @@
+import "./signup.css"
 export default function Register() {
   return (
     <div className="container-signup">
