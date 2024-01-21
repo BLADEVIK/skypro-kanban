@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import "./signup.css"
+import { appRoutes } from "../../lib/appRoutes";
 export default function Register() {
   return (
     <div className="container-signup">
@@ -34,7 +36,7 @@ export default function Register() {
             </button>
             <div className="modal__form-group">
               <p>
-                Уже есть аккаунт? <a href="signin.html">Войдите здесь</a>
+                Уже есть аккаунт? <Link to={appRoutes.LOGIN}><a href="signin.html">Войдите здесь</a></Link>
               </p>
             </div>
           </form>

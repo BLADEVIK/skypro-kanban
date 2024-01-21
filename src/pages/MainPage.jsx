@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Main from "../components/Main/Main";
 // import PopBrowse from "../components/PopBrowse/PopBrowse";
@@ -7,7 +7,6 @@ import Main from "../components/Main/Main";
 import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 import { cardList } from "./../data";
-import { appRoutes } from './../lib/appRoutes';
 
 export default function MainPage() {
   const [cards, setCards] = useState(cardList);
@@ -39,10 +38,6 @@ export default function MainPage() {
         {/* <PopExit />  */}
         <Header addCard={addCard} />
         <Main isLoaded={isLoaded} cardList={cards} />
-        <Link to={appRoutes.EXIT}>LOGIN</Link>
-        <br/>
-        <br/>
-        <Link to={appRoutes.REGISTER}>REGISTER</Link>
       </Wrapper>
     </>
   );
