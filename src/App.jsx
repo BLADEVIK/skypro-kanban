@@ -54,8 +54,8 @@ function App() {
             }
           >
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+            <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
-          <Route path={appRoutes.EXIT} element={<PopExitPage />} />
         </Route>
         <Route path={appRoutes.LOGIN} element={<LoginPage />} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />

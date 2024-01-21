@@ -164,6 +164,9 @@ export const PopUserSetButton = styled.button`
   border-radius: 4px;
   border: 1px solid #565eef;
 `;
-export const PopUserSetButtonA = styled.a`
+export const PopUserSetButtonA = styled.div`
   color: #565eef;
+  &:hover{
+    color: white;
+  }
 `;
