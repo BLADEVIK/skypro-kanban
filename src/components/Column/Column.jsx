@@ -9,6 +9,7 @@ function Column({ title, cardList }) {
       <Cards>
         {cardList.map((card) => (
           <Card
+            id={card.id}
             name={card.title}
             theme={card.theme}
             date={card.date}
