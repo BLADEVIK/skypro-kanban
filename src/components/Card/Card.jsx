@@ -13,7 +13,7 @@ import {
 } from "./Card.styled";
 import { appRoutes } from "./../../lib/appRoutes";
 
-function Card({ name, theme, date,id }) {
+function Card({ name, theme, date, id }) {
   let color;
   switch (theme) {
     case "Web Design":
@@ -33,14 +33,12 @@ function Card({ name, theme, date,id }) {
           <CardTheme $themeColor={color}>
             <CardThemeText>{theme}</CardThemeText>
           </CardTheme>
-          <Link to={`${appRoutes.CARD}/${id}`}>
-          <a href="#popBrowse" target="_self">
+          <Link to={`${appRoutes.CARD}/${id}`} target="_self">
             <CardBtn>
               <CardBtnDiv />
               <CardBtnDiv />
               <CardBtnDiv />
             </CardBtn>
-          </a>
           </Link>
         </CardGroup>
         <CardContent>

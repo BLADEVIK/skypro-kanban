@@ -59,7 +59,7 @@ export const HeaderBtnMainNew = styled.button`
     margin-right: 0;
   }
 `;
-export const HeaderUser = styled.a`
+export const HeaderUser = styled.div`
   height: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -68,6 +68,7 @@ export const HeaderUser = styled.a`
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
+  cursor: pointer;
   &::after {
     content: "";
     display: block;
@@ -166,7 +167,7 @@ export const PopUserSetButton = styled.button`
 `;
 export const PopUserSetButtonA = styled.div`
   color: #565eef;
-  &:hover{
+  &:hover {
     color: white;
   }
 `;
