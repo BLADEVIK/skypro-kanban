@@ -68,7 +68,7 @@ export const PopExitExitYes = styled.button`
   color: #ffffff;
   margin-right: 10px;
 `;
-export const PopExitExitYesA = styled.a`
+export const PopExitExitYesA = styled.div`
   width: 100%;
   height: 100%;
   color: #ffffff;
@@ -76,7 +76,7 @@ export const PopExitExitYesA = styled.a`
   align-items: center;
   justify-content: center;
 `;
-export const PopExitExitNo = styled.button`
+export const PopExitExitNo = styled.div`
   width: 153px;
   height: 30px;
   background-color: transparent;
@@ -92,7 +92,7 @@ export const PopExitExitNo = styled.button`
   letter-spacing: -0.14px;
   color: #ffffff;
 `;
-export const PopExitExitNoA = styled.a`
+export const PopExitExitNoA = styled.div`
   width: 100%;
   height: 100%;
   color: #565eef;

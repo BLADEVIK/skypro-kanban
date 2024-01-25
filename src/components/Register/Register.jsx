@@ -36,7 +36,7 @@ export default function Register() {
             </button>
             <div className="modal__form-group">
               <p>
-                Уже есть аккаунт? <Link to={appRoutes.LOGIN}><a href="signin.html">Войдите здесь</a></Link>
+                Уже есть аккаунт? <Link to={appRoutes.LOGIN}>Войдите здесь</Link>
               </p>
             </div>
           </form>
