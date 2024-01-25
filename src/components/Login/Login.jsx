@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
 import "./signin.css";
 import { login } from "../../api";
 import { useState } from "react";
 
-export default function Login() {
+export default function Login({setUserDate}) {
+  let navigate=useNavigate()
   const loginForm = {
     login: "",
     password: "",
@@ -15,7 +16,11 @@ export default function Login() {
     e.preventDefault();
     await login(loginDate).then((date) => {
       console.log(date);
-    });
+      console.log(date.user);
+      setUserDate(date.user);
+    }).then(()=>{
+      navigate(appRoutes.MAIN)
+    })
   };
 
   const handleInputChange = (e) => {
