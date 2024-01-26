@@ -1,7 +1,5 @@
 import "./App.css";
 
-// import { useEffect, useState } from "react";
-// import { cardList } from "./data";
 import { GlobalStyle } from "./Global.styled";
 import { appRoutes } from "./lib/appRoutes";
 import { Routes, Route } from "react-router-dom";
@@ -14,50 +12,23 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PopExitPage from "./pages/PopExitPage";
+import { useState } from "react";
 
 function App() {
-  let user = true;
-  // const [cards, setCards] = useState(cardList);
-  // const [isLoaded, setIsLoaded] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoaded(false);
-  //   }, 1000);
-  // }, []);
-
-  // function addCard() {
-  //   setCards([
-  //     ...cards,
-  //     {
-  //       id: cards.length + 1,
-  //       theme: "Web Design",
-  //       title: "Название задачи",
-  //       date: "30.10.23",
-  //       status: "Без статуса",
-  //     },
-  //   ]);
-  // }
+  // let user = true;
+  const [userDate, setUserDate] = useState(null);
 
   return (
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={user} />}>
-          <Route
-            path={appRoutes.MAIN}
-            element={
-              <MainPage
-              // isLoaded={isLoaded}
-              // cardList={cards}
-              // addCard={addCard}
-              />
-            }
-          >
+        <Route element={<PrivateRoute user={userDate} />}>
+          <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
             <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
         </Route>
-        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={appRoutes.LOGIN} element={<LoginPage setUserDate={setUserDate} />} />
         <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
