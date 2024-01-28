@@ -1,20 +1,27 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Main from "../components/Main/Main";
-// import PopBrowse from "../components/PopBrowse/PopBrowse";
-// import PopExit from "../components/PopExit/PopExit";
-// import PopNewCard from "../components/PopNewCard/PopNewCard";
+
 import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
-import { cardList } from "./../data";
+// import { cardList } from "./../data";
+import { getTasks } from "../api";
 
-export default function MainPage() {
-  const [cards, setCards] = useState(cardList);
+export default function MainPage({ userDate }) {
+  const [cards, setCards] = useState(null);
   const [isLoaded, setIsLoaded] = useState(true);
+  const [getCardsError, setGetCardsError] = useState(null);
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false);
-    }, 1000);
+    getTasks({ token: userDate.token })
+      .then((data) => {
+        setCards(data.tasks);
+      })
+      .catch((error) => {
+        setGetCardsError(error.message);
+      })
+      .then(() => {
+        setIsLoaded(false);
+      });
   }, []);
 
   function addCard() {
@@ -33,11 +40,13 @@ export default function MainPage() {
     <>
       <Wrapper>
         <Outlet />
-        {/* <PopBrowse /> 
-         <PopNewCard /> */}
-        {/* <PopExit />  */}
+
         <Header addCard={addCard} />
-        <Main isLoaded={isLoaded} cardList={cards} />
+        {getCardsError ? (
+          <h1 style={{ color: "red" }}>{getCardsError}</h1>
+        ) : (
+          <Main isLoaded={isLoaded} cardList={cards} />
+        )}
       </Wrapper>
     </>
   );

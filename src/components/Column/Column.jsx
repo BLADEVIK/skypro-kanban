@@ -9,11 +9,11 @@ function Column({ title, cardList }) {
       <Cards>
         {cardList.map((card) => (
           <Card
-            id={card.id}
-            name={card.title}
+            id={card._id}
+            name={card.topic}
             theme={card.theme}
             date={card.date}
-            key={card.id}
+            key={card._id}
           />
         ))}
       </Cards>

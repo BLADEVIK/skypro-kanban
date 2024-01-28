@@ -4,7 +4,7 @@ import "./signin.css";
 import { login } from "../../api";
 import { useState } from "react";
 
-export default function Login({ setUserDate }) {
+export default function LoginPage({ setUserDate }) {
   let navigate = useNavigate();
   const loginForm = {
     login: "",
@@ -16,12 +16,13 @@ export default function Login({ setUserDate }) {
     e.preventDefault();
     await login(loginDate)
       .then((date) => {
-        console.log(date);
-        console.log(date.user);
         setUserDate(date.user);
       })
       .then(() => {
         navigate(appRoutes.MAIN);
+      })
+      .catch((error) => {
+        console.warn(error);
       });
   };
 
