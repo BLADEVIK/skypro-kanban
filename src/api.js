@@ -32,7 +32,7 @@ export async function getTasks({ token }) {
   return date;
 }
 
-export async function registerUser({ login, name, password }) {
+export async function RegisterUser({ login, name, password }) {
   const response = await fetch(API_URL_USER, {
     method: "POST",
     body: JSON.stringify({

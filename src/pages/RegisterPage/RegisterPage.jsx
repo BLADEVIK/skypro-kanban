@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 import { appRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
-import { registerUser } from "../../api";
+import { RegisterUser } from "../../api";
 
 export default function RegisterPage({ setUserDate }) {
   const [regFormData, setRegFormData] = useState({
@@ -25,7 +25,7 @@ export default function RegisterPage({ setUserDate }) {
 		try {
 			e.preventDefault();
 			setRegBtnLoading(true);
-			const reggedUser = await registerUser({
+			const reggedUser = await RegisterUser({
 				login: regFormData.login,
 				name: regFormData.name,
 				password: regFormData.password,
