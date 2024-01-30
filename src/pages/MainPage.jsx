@@ -41,7 +41,7 @@ export default function MainPage({ userDate }) {
       <Wrapper>
         <Outlet />
 
-        <Header addCard={addCard} />
+        <Header addCard={addCard} user={userDate}/>
         {getCardsError ? (
           <h1 style={{ color: "red" }}>{getCardsError}</h1>
         ) : (
