@@ -4,7 +4,7 @@ import { appRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { RegisterUser } from "../../api";
 
-export default function RegisterPage({ setUserDate }) {
+export default function RegisterPage({ setUserData }) {
   const [regFormData, setRegFormData] = useState({
 		login: "",
 		name: "",
@@ -30,7 +30,7 @@ export default function RegisterPage({ setUserDate }) {
 				name: regFormData.name,
 				password: regFormData.password,
 			});
-			setUserDate(reggedUser.user);
+			setUserData(reggedUser.user);
 			alert("Пользователь успешно создан")
 			navigate(appRoutes.MAIN);
 		} catch (error) {

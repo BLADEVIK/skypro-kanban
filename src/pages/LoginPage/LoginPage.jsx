@@ -3,8 +3,10 @@ import { appRoutes } from "../../lib/appRoutes";
 import "./signin.css";
 import { login } from "../../api";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 
-export default function LoginPage({ setUserDate }) {
+export default function LoginPage() {
+  const {loginUser}=useUser()
   let navigate = useNavigate();
   const loginForm = {
     login: "",
@@ -15,8 +17,8 @@ export default function LoginPage({ setUserDate }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     await login(loginDate)
-      .then((date) => {
-        setUserDate(date.user);
+      .then((data) => {
+        loginUser(data.user)
       })
       .then(() => {
         navigate(appRoutes.MAIN);

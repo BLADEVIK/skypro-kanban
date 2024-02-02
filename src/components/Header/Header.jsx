@@ -29,12 +29,12 @@ function Header({addCard,user}){
                 Создать новую задачу
                 </HeaderBtnMainNew>
               <HeaderUser href="#"  onClick={togglePopUp}>
-                {user.name}
+                {user.login}
                 </HeaderUser>
               {isOpened &&
                 <HeaderPopUserSet className=" pop-user-set" id="user-set-target">
                 <PopUserSetName>{user.name}</PopUserSetName>
-                <PopUserSetMail>{user.name}@gmail.com</PopUserSetMail>
+                <PopUserSetMail>{user.login}</PopUserSetMail>
                 <PopUserSetTheme>
                   <PopUserSetThemeP>Темная тема</PopUserSetThemeP>
                   <PopUserSetThemeInput type="checkbox" className="checkbox" name="checkbox" />

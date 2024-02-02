@@ -6,13 +6,15 @@ import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 // import { cardList } from "./../data";
 import { getTasks } from "../api";
+import { useUser } from "../hooks/useUser";
 
-export default function MainPage({ userDate }) {
+export default function MainPage() {
+  const {userData}=useUser()
   const [cards, setCards] = useState(null);
   const [isLoaded, setIsLoaded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);
   useEffect(() => {
-    getTasks({ token: userDate.token })
+    getTasks({ token: userData.token })
       .then((data) => {
         setCards(data.tasks);
       })
@@ -41,7 +43,7 @@ export default function MainPage({ userDate }) {
       <Wrapper>
         <Outlet />
 
-        <Header addCard={addCard} user={userDate}/>
+        <Header addCard={addCard} userData={userData}/>
         {getCardsError ? (
           <h1 style={{ color: "red" }}>{getCardsError}</h1>
         ) : (

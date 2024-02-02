@@ -16,23 +16,23 @@ import { useState } from "react";
 
 function App() {
   // let user = true;
-  const [userDate, setUserDate] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   return (
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={userDate} />}>
-          <Route path={appRoutes.MAIN} element={<MainPage userDate={userDate} />}>
+        <Route element={<PrivateRoute user={userData} />}>
+          <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
             <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
         </Route>
         <Route
           path={appRoutes.LOGIN}
-          element={<LoginPage setUserDate={setUserDate} />}
+          element={<LoginPage setUserData={setUserData} />}
         />
-        <Route path={appRoutes.REGISTER} element={<RegisterPage setUserDate={setUserDate} />} />
+        <Route path={appRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
         <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
       ;
