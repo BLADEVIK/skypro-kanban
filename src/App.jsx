@@ -22,17 +22,17 @@ function App() {
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={userData} />}>
+        <Route element={<PrivateRoute  />}>
           <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
             <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
         </Route>
+        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
         <Route
-          path={appRoutes.LOGIN}
-          element={<LoginPage setUserData={setUserData} />}
+          path={appRoutes.REGISTER}
+          element={<RegisterPage  setUserData={setUserData} />}
         />
-        <Route path={appRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
         <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
       ;

@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   const loginUser = (user) => {
-    console.log(user);
+    
     setUserData(user);
     navigate(appRoutes.MAIN);
   };
@@ -18,8 +18,8 @@ export const UserProvider = ({ children }) => {
     navigate(appRoutes.LOGIN)
   }
   return(
-    <UserContext value={{userData,loginUser,logoutUser}}>
+    <UserContext.Provider value={{userData,loginUser,logoutUser}}>
         {children}
-    </UserContext>
+    </UserContext.Provider>
   )
 };
