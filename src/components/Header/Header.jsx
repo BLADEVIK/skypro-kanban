@@ -4,6 +4,7 @@ import { HeaderBlock, HeaderBtnMainNew, HeaderLogo, HeaderLogoDark, HeaderLogoIm
 import { appRoutes } from "../../lib/appRoutes";
 import { Link } from 'react-router-dom';
 
+
 function Header({addCard,userData}){
   const [isOpened,setIsOpened]=useState(false);
 
@@ -25,9 +26,11 @@ function Header({addCard,userData}){
               </a>
               </HeaderLogoDark>
             <HeaderNav>
-              <HeaderBtnMainNew id="btnMainNew" onClick={addCard}>
+              <Link to={appRoutes.NEW_CARD}>
+              <HeaderBtnMainNew id="btnMainNew" >
                 Создать новую задачу
                 </HeaderBtnMainNew>
+                </Link>
               <HeaderUser href="#"  onClick={togglePopUp}>
                 {userData.login}
                 </HeaderUser>

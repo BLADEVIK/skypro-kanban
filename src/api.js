@@ -49,3 +49,30 @@ export async function RegisterUser({ login, name, password }) {
   const user = await response.json();
   return user;
 }
+
+
+// export async function addNewTask({
+//   token,
+//   title,
+//   topic,
+//   status,
+//   description,
+//   date,
+// }) {
+//   const response = await fetch(API_URL, {
+//     method: "POST",
+//     body: JSON.stringify({
+//       token,
+//       title,
+//       topic,
+//       status,
+//       description,
+//       date,
+//     }),
+//   });
+//   if (response.status === 400) {
+//     throw new Error("Ошибка формата введеных данных");
+//   }
+//   const updateTasks = await response.json();
+//   return updateTasks;
+// }

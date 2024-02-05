@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { RegisterUser } from "../../api";
+import { useUser } from "../../hooks/useUser";
 
 export default function RegisterPage({ setUserData }) {
+  const {loginUser}=useUser()
   const [regFormData, setRegFormData] = useState({
     login: "",
     name: "",
@@ -33,6 +35,8 @@ export default function RegisterPage({ setUserData }) {
       });
       setUserData(reggedUser.user);
       alert("Пользователь успешно создан");
+      loginUser(reggedUser.user)
+      console.log(reggedUser.user);
       navigate(appRoutes.MAIN);
     } catch (error) {
       setRegFormError(error.message);

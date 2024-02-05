@@ -13,6 +13,8 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PopExitPage from "./pages/PopExitPage";
 import { useState } from "react";
+import PopNewCard from './components/PopNewCard/PopNewCard';
+import NewCard from "./pages/NewCard";
 
 function App() {
   // let user = true;
@@ -25,6 +27,7 @@ function App() {
         <Route element={<PrivateRoute  />}>
           <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+            <Route path={appRoutes.NEW_CARD} element={<NewCard />} />
             <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
         </Route>
