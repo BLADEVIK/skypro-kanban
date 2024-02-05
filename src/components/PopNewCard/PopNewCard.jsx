@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
-import 'react-day-picker/dist/style.css';
+import "react-day-picker/dist/style.css";
+
+import "../../App.css"
+import { Link } from "react-router-dom";
+import { appRoutes } from "../../lib/appRoutes";
+
+
 function PopNewCard() {
-  const [date,setDate]=useState(null)
+  const [date, setDate] = useState(null);
   return (
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
         <div className="pop-new-card__block">
           <div className="pop-new-card__content">
             <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
+            <Link to={appRoutes.MAIN} className="pop-new-card__close">
               ✖
-            </a>
+            </Link>
             <div className="pop-new-card__wrap">
               <form
                 className="pop-new-card__form form-new"
@@ -45,13 +51,16 @@ function PopNewCard() {
               </form>
               <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
+
                 <DayPicker
+                  className="dayPiker"
                   mode="single"
                   selected={date}
-                  onSelect={setDate} 
-                  width="100px"
+                  onSelect={setDate}
+
                   // footer={footer}
                 />
+
                 {/* <div className="calendar__block">
                     <div className="calendar__nav">
                       <div className="calendar__month">Сентябрь 2023</div>
@@ -176,7 +185,7 @@ function PopNewCard() {
                 </div>
               </div>
             </div>
-            <button className="form-new__create _hover01" id="btnCreate">
+            <button  className="form-new__create _hover01" id="btnCreate">
               Создать задачу
             </button>
           </div>

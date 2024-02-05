@@ -53,5 +53,8 @@ ul li {
 ._hover03:hover a {
   color: #FFFFFF;
 }
-
+.dayPiker{
+  --rdp-cell-size: 25px; /* Size of the day cells. */
+  
+}
 `;
