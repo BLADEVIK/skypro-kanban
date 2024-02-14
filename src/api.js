@@ -60,8 +60,8 @@ export async function createTasks(inputData) {
     },
     body: JSON.stringify(inputData),
   });
-  if (response.status === 401) {
-    throw new Error("Ошибка авторизации");
+  if (response.status === 400) {
+    throw new Error(alert("Введите данные"));
   } else {
     const data = await response.json();
     return data;
@@ -76,7 +76,7 @@ export async function deleteTask( id ) {
         },
     });
     if (response.status >= 400) {
-        throw new Error("Ошибка удаления")
+        throw new Error(alert("Ошибка удаления"))
     } else {
         const data = await response.json();
         return data;
