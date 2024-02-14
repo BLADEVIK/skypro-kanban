@@ -32,10 +32,7 @@ function App() {
           </Route>
         </Route>
         <Route path={appRoutes.LOGIN} element={<LoginPage />} />
-        <Route
-          path={appRoutes.REGISTER}
-          element={<RegisterPage setUserData={setUserData} />}
-        />
+        <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
       ;

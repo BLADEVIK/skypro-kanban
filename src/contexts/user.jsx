@@ -4,22 +4,26 @@ import { appRoutes } from "../lib/appRoutes";
 
 export const UserContext = createContext(null);
 
+const getUserFromLocalStorage = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
 export const UserProvider = ({ children }) => {
   let navigate = useNavigate();
-  const [userData, setUserData] = useState(null);
-
+  const [userData, setUserData] = useState(getUserFromLocalStorage());
+  const [tasks,setTasks]=useState([])
   const loginUser = (user) => {
-    
     setUserData(user);
+    localStorage.setItem("user", JSON.stringify(user));
     navigate(appRoutes.MAIN);
   };
-  const logoutUser=()=>{
-    setUserData(null)
-    navigate(appRoutes.LOGIN)
-  }
-  return(
-    <UserContext.Provider value={{userData,loginUser,logoutUser}}>
-        {children}
+  const logoutUser = () => {
+    setUserData(null);
+    localStorage.removeItem('user')
+    navigate(appRoutes.LOGIN);
+  };
+  return (
+    <UserContext.Provider value={{ userData, loginUser, logoutUser,setTasks,tasks }}>
+      {children}
     </UserContext.Provider>
-  )
+  );
 };

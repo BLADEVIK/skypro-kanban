@@ -1,4 +1,5 @@
 const token = "asb4c4boc86gasb4c4boc86g37w3cc3bo3b83k4g37k3bk3cg3c03ck4k";
+
 const API_URL_USER = "https://wedev-api.sky.pro/api/user";
 const API_URL = "https://wedev-api.sky.pro/api/kanban";
 
@@ -17,7 +18,7 @@ export async function login({ login, password }) {
   const date = await response.json();
   return date;
 }
-export async function getTasks({ token }) {
+export async function getTasks() {
   const response = await fetch(API_URL, {
     method: "GET",
     headers: {
@@ -50,29 +51,34 @@ export async function RegisterUser({ login, name, password }) {
   return user;
 }
 
+export async function createTasks(inputData) {
+ 
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(inputData),
+  });
+  if (response.status === 401) {
+    throw new Error("Ошибка авторизации");
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}
 
-// export async function addNewTask({
-//   token,
-//   title,
-//   topic,
-//   status,
-//   description,
-//   date,
-// }) {
-//   const response = await fetch(API_URL, {
-//     method: "POST",
-//     body: JSON.stringify({
-//       token,
-//       title,
-//       topic,
-//       status,
-//       description,
-//       date,
-//     }),
-//   });
-//   if (response.status === 400) {
-//     throw new Error("Ошибка формата введеных данных");
-//   }
-//   const updateTasks = await response.json();
-//   return updateTasks;
-// }
+export async function deleteTask( id ) {
+    const response = await fetch(API_URL + '/' + id, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    });
+    if (response.status >= 400) {
+        throw new Error("Ошибка удаления")
+    } else {
+        const data = await response.json();
+        return data;
+    }
+}
