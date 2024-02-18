@@ -12,6 +12,8 @@ import {
   CardsItem,
 } from "./Card.styled";
 import { appRoutes } from "./../../lib/appRoutes";
+import { format } from "date-fns";
+import ru from "date-fns/locale/ru";
 
 function Card({ name, theme, date, id }) {
   let color;
@@ -75,7 +77,7 @@ function Card({ name, theme, date, id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{date}</p>
+            <p>{format(date, "PP", { locale: ru })}</p>
           </CardDate>
         </CardContent>
       </CardWrapper>

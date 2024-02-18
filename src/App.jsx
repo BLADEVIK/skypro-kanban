@@ -18,7 +18,7 @@ import NewCard from "./pages/NewCard";
 
 function App() {
   // let user = true;
-  const [userData, setUserData] = useState(null);
+  // const [userData, setUserData] = useState(null);
 
   return (
     <>

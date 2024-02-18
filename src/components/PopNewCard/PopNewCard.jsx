@@ -81,9 +81,9 @@ function PopNewCard() {
                   />
                 </div>
               </form>
-              <div className="pop-new-card__calendar calendar">
+              {/* <div className="pop-new-card__calendar calendar"> */}
                 <Calendar selected={selected} setSelected={setSelected} />
-              </div>
+              {/* </div> */}
             </div>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
