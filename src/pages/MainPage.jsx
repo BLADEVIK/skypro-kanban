@@ -6,15 +6,18 @@ import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 // import { cardList } from "./../data";
 import { getTasks } from "../api";
+import { useUser } from "../hooks/useUser";
 
-export default function MainPage({ userDate }) {
+export default function MainPage() {
+  const {userData,tasks,setTasks}=useUser()
+  
   const [cards, setCards] = useState(null);
   const [isLoaded, setIsLoaded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);
   useEffect(() => {
-    getTasks({ token: userDate.token })
+    getTasks()
       .then((data) => {
-        setCards(data.tasks);
+        setTasks(data.tasks);
       })
       .catch((error) => {
         setGetCardsError(error.message);
@@ -24,28 +27,29 @@ export default function MainPage({ userDate }) {
       });
   }, []);
 
-  function addCard() {
-    setCards([
-      ...cards,
-      {
-        id: cards.length + 1,
-        theme: "Web Design",
-        title: "Название задачи",
-        date: "30.10.23",
-        status: "Без статуса",
-      },
-    ]);
-  }
+  // function addCard() {
+  //   setCards([
+  //     ...cards,
+  //     {
+  //       id: cards.length + 1,
+  //       theme: "Web Design",
+  //       title: "Название задачи",
+  //       date: "30.10.23",
+  //       status: "Без статуса",
+  //     },
+  //   ]);
+  // }
+  
   return (
     <>
       <Wrapper>
         <Outlet />
 
-        <Header addCard={addCard} user={userDate}/>
+        <Header  userData={userData}/>
         {getCardsError ? (
           <h1 style={{ color: "red" }}>{getCardsError}</h1>
         ) : (
-          <Main isLoaded={isLoaded} cardList={cards} />
+          <Main isLoaded={isLoaded} cardList={tasks} />
         )}
       </Wrapper>
     </>

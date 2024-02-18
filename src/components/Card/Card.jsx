@@ -26,6 +26,7 @@ function Card({ name, theme, date, id }) {
       color = "_green";
       break;
   }
+
   return (
     <CardsItem>
       <CardWrapper>

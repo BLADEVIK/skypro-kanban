@@ -13,26 +13,26 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PopExitPage from "./pages/PopExitPage";
 import { useState } from "react";
+// import PopNewCard from './components/PopNewCard/PopNewCard';
+import NewCard from "./pages/NewCard";
 
 function App() {
   // let user = true;
-  const [userDate, setUserDate] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   return (
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute user={userDate} />}>
-          <Route path={appRoutes.MAIN} element={<MainPage userDate={userDate} />}>
+        <Route element={<PrivateRoute />}>
+          <Route path={appRoutes.MAIN} element={<MainPage />}>
             <Route path={`${appRoutes.CARD}/:cardId`} element={<CardPage />} />
+            <Route path={appRoutes.NEW_CARD} element={<NewCard />} />
             <Route path={appRoutes.EXIT} element={<PopExitPage />} />
           </Route>
         </Route>
-        <Route
-          path={appRoutes.LOGIN}
-          element={<LoginPage setUserDate={setUserDate} />}
-        />
-        <Route path={appRoutes.REGISTER} element={<RegisterPage setUserDate={setUserDate} />} />
+        <Route path={appRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={appRoutes.REGISTER} element={<RegisterPage />} />
         <Route path={appRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
       ;

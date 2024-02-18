@@ -1,26 +1,28 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { appRoutes } from "../../lib/appRoutes";
 import "./signin.css";
 import { login } from "../../api";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 
-export default function LoginPage({ setUserDate }) {
-  let navigate = useNavigate();
+export default function LoginPage() {
+  const {loginUser}=useUser()
+  // let navigate = useNavigate();
   const loginForm = {
     login: "",
     password: "",
   };
-  const [loginDate, setLoginDate] = useState(loginForm);
+  const [loginData, setLoginData] = useState(loginForm);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await login(loginDate)
-      .then((date) => {
-        setUserDate(date.user);
+    await login(loginData)
+      .then((data) => {
+        loginUser(data.user)
       })
-      .then(() => {
-        navigate(appRoutes.MAIN);
-      })
+      // .then(() => {
+      //   navigate(appRoutes.MAIN);
+      // })
       .catch((error) => {
         console.warn(error);
       });
@@ -29,8 +31,8 @@ export default function LoginPage({ setUserDate }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    setLoginDate({
-      ...loginDate,
+    setLoginData({
+      ...loginData,
       [name]: value,
     });
   };
@@ -47,7 +49,7 @@ export default function LoginPage({ setUserDate }) {
               type="text"
               id="formlogin"
               placeholder="Эл. почта"
-              value={loginDate.login}
+              value={loginData.login}
               onChange={handleInputChange}
               name="login"
               label="Имя"
@@ -57,7 +59,7 @@ export default function LoginPage({ setUserDate }) {
               type="password"
               id="formpassword"
               placeholder="Пароль"
-              value={loginDate.password}
+              value={loginData.password}
               onChange={handleInputChange}
               name="password"
               label="Пароль"

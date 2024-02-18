@@ -1,4 +1,5 @@
 const token = "asb4c4boc86gasb4c4boc86g37w3cc3bo3b83k4g37k3bk3cg3c03ck4k";
+
 const API_URL_USER = "https://wedev-api.sky.pro/api/user";
 const API_URL = "https://wedev-api.sky.pro/api/kanban";
 
@@ -17,7 +18,7 @@ export async function login({ login, password }) {
   const date = await response.json();
   return date;
 }
-export async function getTasks({ token }) {
+export async function getTasks() {
   const response = await fetch(API_URL, {
     method: "GET",
     headers: {
@@ -48,4 +49,36 @@ export async function RegisterUser({ login, name, password }) {
 
   const user = await response.json();
   return user;
+}
+
+export async function createTasks(inputData) {
+ 
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(inputData),
+  });
+  if (response.status === 400) {
+    throw new Error(alert("Введите данные"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}
+
+export async function deleteTask( id ) {
+    const response = await fetch(API_URL + '/' + id, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    });
+    if (response.status >= 400) {
+        throw new Error(alert("Ошибка удаления"))
+    } else {
+        const data = await response.json();
+        return data;
+    }
 }
