@@ -38,10 +38,10 @@ function Header({addCard,userData}){
                 <HeaderPopUserSet className=" pop-user-set" id="user-set-target">
                 <PopUserSetName>{userData.name}</PopUserSetName>
                 <PopUserSetMail>{userData.login}</PopUserSetMail>
-                <PopUserSetTheme>
+                {/* <PopUserSetTheme>
                   <PopUserSetThemeP>Темная тема</PopUserSetThemeP>
                   <PopUserSetThemeInput type="checkbox" className="checkbox" name="checkbox" />
-                  </PopUserSetTheme>
+                  </PopUserSetTheme> */}
                 <PopUserSetButton type="button" className="_hover03">
                 
                 <Link to={appRoutes.EXIT}> <PopUserSetButtonA>Выйти</PopUserSetButtonA></Link>
